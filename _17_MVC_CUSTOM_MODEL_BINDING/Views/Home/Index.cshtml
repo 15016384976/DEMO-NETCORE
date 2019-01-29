@@ -1,0 +1,8 @@
+﻿@model List<_17_MVC_MODEL_BINDING_CUSTOM.MovieViewModel>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li><a asp-action="Details" asp-route-id="@item.Id">@item.Title (@item.Id)</a></li>
+    }
+</ul>
