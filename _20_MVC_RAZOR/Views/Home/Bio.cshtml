@@ -1,0 +1,5 @@
+﻿@using _20_MVC_RAZOR
+@model AboutViewModel
+@inject IGreeter GreeterService
+
+<p>@GreeterService.Greet(Model.Firstname, Model.Surname)</p>

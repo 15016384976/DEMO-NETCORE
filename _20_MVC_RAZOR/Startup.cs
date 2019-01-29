@@ -8,12 +8,32 @@ namespace _20_MVC_RAZOR
     {
         public void ConfigureServices(IServiceCollection serviceCollection)
         {
-            // setup dependency injection in service container
+            serviceCollection.AddScoped<IGreeter, Greeter>();
+            serviceCollection.AddMvc();
         }
 
         public void Configure(IApplicationBuilder applicationBuilder, IHostingEnvironment hostingEnvironment)
         {
-            // setup request pipeline using middleware
+            applicationBuilder.UseMvcWithDefaultRoute();
+        }
+    }
+
+    public class AboutViewModel
+    {
+        public string Firstname { get; set; }
+        public string Surname { get; set; }
+    }
+
+    public interface IGreeter
+    {
+        string Greet(string firstname, string surname);
+    }
+
+    public class Greeter : IGreeter
+    {
+        public string Greet(string firstname, string surname)
+        {
+            return $"Hello {firstname} {surname}";
         }
     }
 }
