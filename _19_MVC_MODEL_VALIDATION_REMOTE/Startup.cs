@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
+using System.ComponentModel.DataAnnotations;
 
 namespace _19_MVC_MODEL_VALIDATION_REMOTE
 {
@@ -15,5 +17,12 @@ namespace _19_MVC_MODEL_VALIDATION_REMOTE
         {
             applicationBuilder.UseMvcWithDefaultRoute();
         }
+    }
+
+    public class EmployeeInputModel
+    {
+        [Required]
+        [Remote(action: "ValidateEmployeeNo", controller: "Home")]
+        public string EmployeeNo { get; set; }
     }
 }
