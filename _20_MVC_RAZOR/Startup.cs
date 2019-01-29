@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace _01_EMPTY_PROJECT
+namespace _20_MVC_RAZOR
 {
     public class Startup
     {
