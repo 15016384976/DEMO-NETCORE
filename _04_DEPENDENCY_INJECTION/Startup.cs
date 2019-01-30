@@ -12,7 +12,7 @@ namespace _04_DEPENDENCY_INJECTION
         {
             // serviceCollection.AddScoped<IGreetingService, GreetingService>();
 
-            serviceCollection.AddScoped<IGreetingService>(implementationFactory =>
+            serviceCollection.AddScoped<IGreetingService>(serviceProvider =>
             {
                 return new GreetingServiceFlexible("Prefix");
             });

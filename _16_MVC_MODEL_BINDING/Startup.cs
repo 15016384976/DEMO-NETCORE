@@ -13,9 +13,9 @@ namespace _16_MVC_MODEL_BINDING
 
         public void Configure(IApplicationBuilder applicationBuilder, IHostingEnvironment hostingEnvironment)
         {
-            applicationBuilder.UseMvc(routes =>
+            applicationBuilder.UseMvc(routeBuilder =>
             {
-                routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
+                routeBuilder.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

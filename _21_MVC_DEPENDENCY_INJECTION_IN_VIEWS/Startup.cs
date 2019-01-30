@@ -16,7 +16,10 @@ namespace _21_MVC_DEPENDENCY_INJECTION_IN_VIEWS
 
         public void Configure(IApplicationBuilder applicationBuilder, IHostingEnvironment hostingEnvironment)
         {
-            applicationBuilder.UseMvcWithDefaultRoute();
+            applicationBuilder.UseMvc(routeBuilder =>
+            {
+                routeBuilder.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
+            });
         }
     }
 

@@ -8,12 +8,16 @@ namespace _25_MVC_AREAS
     {
         public void ConfigureServices(IServiceCollection serviceCollection)
         {
-            // setup dependency injection in service container
+            serviceCollection.AddMvc();
         }
 
         public void Configure(IApplicationBuilder applicationBuilder, IHostingEnvironment hostingEnvironment)
         {
-            // setup request pipeline using middleware
+            applicationBuilder.UseMvc(routeBuilder =>
+            {
+                routeBuilder.MapRoute(name: "area", template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                routeBuilder.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
+            });
         }
     }
 }

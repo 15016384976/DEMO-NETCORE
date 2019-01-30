@@ -12,18 +12,18 @@ namespace _03_MIDDLEWARE_PASSING_PARAMETERS
         public void ConfigureServices(IServiceCollection serviceCollection)
         {
             // serviceCollection.AddMessageFormatter(new MessageOptions { Format = "upper" });
-            serviceCollection.AddMessageFormatter(configureMessageOptions =>
+            serviceCollection.AddMessageFormatter(messageOptions =>
             {
-                configureMessageOptions.Format = "upper";
+                messageOptions.Format = "upper";
             });
         }
 
         public void Configure(IApplicationBuilder applicationBuilder, IHostingEnvironment hostingEnvironment)
         {
             // applicationBuilder.UseGreetingMiddleware(new GreetingOptions { Content = "Greeting via Type" });
-            applicationBuilder.UseGreetingMiddleware(configureGreetingOptions =>
+            applicationBuilder.UseGreetingMiddleware(greetingOptions =>
             {
-                configureGreetingOptions.Content = "Greeting via Func";
+                greetingOptions.Content = "Greeting via Func";
             });
         }
     }

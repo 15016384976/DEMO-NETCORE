@@ -22,11 +22,11 @@ namespace _15_MVC_ROUTING
 
         public void Configure(IApplicationBuilder applicationBuilder, IHostingEnvironment hostingEnvironment)
         {
-            applicationBuilder.UseMvc(configureRoutes =>
+            applicationBuilder.UseMvc(routeBuilder =>
             {
-                configureRoutes.MapRoute(name: "goto_one", template: "one", defaults: new { controller = "Home", action = "PageOne" });
-                configureRoutes.MapRoute(name: "goto_two", template: "two/{id?}", defaults: new { controller = "Home", action = "PageTwo" });
-                configureRoutes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
+                routeBuilder.MapRoute(name: "goto_one", template: "one", defaults: new { controller = "Home", action = "PageOne" });
+                routeBuilder.MapRoute(name: "goto_two", template: "two/{id?}", defaults: new { controller = "Home", action = "PageTwo" });
+                routeBuilder.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

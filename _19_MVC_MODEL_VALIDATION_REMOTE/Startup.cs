@@ -15,7 +15,10 @@ namespace _19_MVC_MODEL_VALIDATION_REMOTE
 
         public void Configure(IApplicationBuilder applicationBuilder, IHostingEnvironment hostingEnvironment)
         {
-            applicationBuilder.UseMvcWithDefaultRoute();
+            applicationBuilder.UseMvc(routeBuilder =>
+            {
+                routeBuilder.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
+            });
         }
     }
 
