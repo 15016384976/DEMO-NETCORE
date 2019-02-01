@@ -1,0 +1,71 @@
+﻿@using _26_MVC_TAG_HELPERS
+@model EmployeeViewModel
+
+<form asp-controller="Home" asp-action="Index" method="post">
+    @* Validation Summary *@
+    <div asp-validation-summary="All"></div>
+
+    <input asp-for="Id" />
+
+    @* Label, Input, Validation(span) *@
+    <label asp-for="Firstname"></label>
+    <input asp-for="Firstname" />
+    <span asp-validation-for="Firstname"></span><br />
+
+    <label asp-for="Email"></label>
+    <input asp-for="Email" />
+    <span asp-validation-for="Email"></span><br />
+
+    <label asp-for="BlogUrl"></label>
+    <input asp-for="BlogUrl" />
+    <span asp-validation-for="BlogUrl"></span><br />
+
+    <label asp-for="MobileNo"></label>
+    <input asp-for="MobileNo" />
+    <span asp-validation-for="MobileNo"></span><br />
+
+    <label asp-for="Password"></label>
+    <input asp-for="Password" />
+    <span asp-validation-for="Password"></span><br />
+
+    <label asp-for="BirthDate"></label>
+    <input asp-for="BirthDate" asp-format="{0:dd/MM/yyyy}" />
+    <span asp-validation-for="BirthDate"></span><br />
+
+    <label asp-for="Salary"></label>
+    <input asp-for="Salary" asp-format="{0:0.00}" />
+    <span asp-validation-for="Salary"></span><br />
+
+    <label asp-for="IsPartTime"></label>
+    <input asp-for="IsPartTime" />
+    <span asp-validation-for="IsPartTime"></span><br />
+
+    @* Textarea *@
+    <label asp-for="Notes"></label>
+    <textarea asp-for="Notes"></textarea>
+    <span asp-validation-for="Notes"></span><br />
+
+    @* Select (single) *@
+    <label asp-for="Title"></label>
+    <select asp-for="Title" asp-items="Model.GetTitles()">
+        <option value="">--select--</option>
+    </select><br />
+
+    @* Select (multiple) *@
+    <label asp-for="Interests"></label>
+    <select asp-for="Interests" asp-items="Model.GetInterests()"></select><br />
+
+    @* Select (enum) *@
+    <label asp-for="Gender"></label>
+    <select asp-for="Gender" asp-items="Html.GetEnumSelectList<Gender>()">
+        <option value="" selected>--select--</option>
+    </select><br />
+
+    <br />
+    <button type="submit">Save</button><br />
+
+    @* Anchor *@
+    <a asp-controller="Home" asp-action="Echo" asp-route-id=@Model.Id>Echo!</a><br />
+    <a asp-route="namedRoute" asp-route-id=@Model.Id>Call Named Route</a><br />
+    <a asp-host="tahir-naushad.com" asp-protocol="http">Blog</a>
+</form>
