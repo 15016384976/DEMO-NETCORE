@@ -14,6 +14,11 @@ namespace _32_MVC_RAZOR_PAGES
         {
             serviceCollection.AddSingleton<IMovieService, MovieService>();
             serviceCollection.AddMvc();
+            //services.AddMvc()
+            //        .AddRazorPagesOptions(options =>
+            //        {
+            //            options.RootDirectory = "/MyPages";
+            //        });
         }
 
         public void Configure(IApplicationBuilder applicationBuilder, IHostingEnvironment hostingEnvironment)
